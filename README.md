@@ -28,31 +28,31 @@ AndroidDeviceTest类
 > **方法详细**：   
 **Int getWidth();**
 返回设备的宽度     
-**Int getHeight(); **
+**Int getHeight();**
 返回设备的高度    
-**startProxy(int port); **
+**startProxy(int port);**
 添加代理    
-**stopProxy(); **
+**stopProxy();**
 清空代理    
-**initAppiumDriver(); **
+**initAppiumDriver();**
 初始化AppiumDriver，在其中注释B处更改初始化时需要打开的应用程序。如果需要测试小程序，则将TODO后的代码取消注释。    
-**installApk(String apkPath); **
+**installApk(String apkPath);**
 以本地apk文件的路径为参数，在对象设备中进行安装     
-**listApps(); **
+**listApps();**
 显示对象设备中已经安装的应用程序，有多种选择      
-**uninstallApp(String appPackage); **
+**uninstallApp(String appPackage);**
 以应用程序的包名为参数，卸载设备中已经安装的应用程序     
 startActivity(String appPackage, String appActivity);
 以应用程序的包名和Activity名为参数（必需），启动对应的应用程序，可以在初始化AppiumDriver后打开新程序而不必再次初始化     
-**clearContacts(); **
+**clearContacts();**
 清空设备的通讯录联系人，重置通讯录程序。本质是利用abd命令对通讯录程序进行重置，将adb命令提取后可以转换为通过应用程序包名重置应用程序的操作。     
-**addContact(String name, String number); **
+**addContact(String name, String number);**
 以欲添加联系人的姓名和电话号码为参数，向设备通讯录内添加指定的联系人     
-**addContactsFromFileString filePath(); **
+**addContactsFromFileString filePath();**
 以本地txt文件的路径为参数，批量导入联系人，其中txt内按照“姓名+换行符+电话号码”的格式，每一行一个联系人    
-**deleteOneContact(String name); **
+**deleteOneContact(String name);**
 以欲删除的联系人的姓名为参数，删除指定的联系人（如果有多个相同姓名的联系人？）     
-**Temp(); **
+**Temp();**
 临时方法，半自动化添加钉钉内组织架构的联系人，在添加完一页的联系人后需手动调整位置    
 
 
@@ -79,26 +79,26 @@ WechatSimulatorTest类
 > **方法详细**：
 **initAppiumDriver();**
 初始化AppiumDriver，在WechatSimulator类中这个方法内部设定为启动微信，最终开启微信的主页面，因此在接下来的操作中无需再次通过adb命令启动微信应用程序。
-在打开微信的主页面后，将继续进入“我”界面，获取本台设备登录的微信号和微信名，以备后续使用（数据库）。
+在打开微信的主页面后，将继续进入“我”界面，获取本台设备登录的微信号和微信名，以备后续使用（数据库）。      
 **getIntoFriend();**
-从主页面进入到当前微信的朋友圈界面，即显示自己的朋友圈内容。
+从主页面进入到当前微信的朋友圈界面，即显示自己的朋友圈内容。     
 **createGroupChat(String groupName,String.. . id);**
-创建新群组，以想要创建的群组名和想要加入的好友名为参数。
+创建新群组，以想要创建的群组名和想要加入的好友名为参数。   
 **getIntoGroup(String groupName);**
-进入群组，以想要进入的群组名为参数。
+进入群组，以想要进入的群组名为参数。   
 **getMoments();**
-在进入的数据库中进行操作，具体见代码注释。将图片，文字，链接以及发送者的微信名存入数据库。
+在进入的数据库中进行操作，具体见代码注释。将图片，文字，链接以及发送者的微信名存入数据库。   
 **getFriendFromGroupChat();**
-添加一个群组中不是好友的组员，要求在已经进入了群组的情况下使用
+添加一个群组中不是好友的组员，要求在已经进入了群组的情况下使用   
 **getSimpleFriend(String friend);**
-进入与指定好友的聊天界面，以好友名为参数。
+进入与指定好友的聊天界面，以好友名为参数。   
 **sendMsg(String msg);**
-在已经进入的聊天界面（单独好友和群组均可）发送一条消息，消息内容为字符串msg的内容。
+在已经进入的聊天界面（单独好友和群组均可）发送一条消息，消息内容为字符串msg的内容。   
 **getChatRecord();**
-在群聊或者单人聊天中，以倒序的形式将所有类型的信息存入数据库中，包括文字，图片，视频，文件，时间。文字保存在text字段下，text_type字段保存文字的类型，如文字text,时间time,或是文件file等。目前能够实现保存文件的文件名，如需获取文件可以保存后从手机文件中进行提取。
+在群聊或者单人聊天中，以倒序的形式将所有类型的信息存入数据库中，包括文字，图片，视频，文件，时间。文字保存在text字段下，text_type字段保存文字的类型，如文字text,时间time,或是文件file等。目前能够实现保存文件的文件名，如需获取文件可以保存后从手机文件中进行提取。   
 **addFriendsByFile(String filepath);**
 根据txt文件批量添加好友，在txt文件中，好友的微信号、欲发送的验证信息和备注3项在同一行以制表符分隔，每一个好友进行换行。在方法中可以预设验证信息字符串变量yanzheng和备注字符串变量beizhu，或不设置备注字符串变量，使好友的备注为微信号。
-备注：由于微信的限制，同一个微信号在通过此方法添加10个左右的微信好友时即会被限制，现在还没有实用的解决方法。添加的同时将本机udid，朋友的微信号，朋友的昵称（在重填备注的界面获取微信默认的备注，即朋友的昵称），和当前的日期添加到数据库的weixin_friends表中。
+备注：由于微信的限制，同一个微信号在通过此方法添加10个左右的微信好友时即会被限制，现在还没有实用的解决方法。添加的同时将本机udid，朋友的微信号，朋友的昵称（在重填备注的界面获取微信默认的备注，即朋友的昵称），和当前的日期添加到数据库的weixin_friends表中。   
 
 ## 注意事项
 1、在每一次需要设备进行自动操作后添加Thread.sleep();代码，运行时的判定是不根据设备是否进行了模拟操作决定的，所以需要预留足够的操作和卡顿时间
