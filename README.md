@@ -25,35 +25,35 @@ AndroidDeviceTest类
 3、确认使用各方法的初始状态后进行使用，在每一个设备执行的方法后添加Thread.sleep()以保证设备的运行状态
 
 ————————————————————————————————
-> **方法详细**：
-**Int getWidth();**   
-返回设备的宽度
-**Int getHeight(); **  
-返回设备的高度
-**startProxy(int port); **   
-添加代理
-**stopProxy(); **   
-清空代理
-**initAppiumDriver(); **   
-初始化AppiumDriver，在其中注释B处更改初始化时需要打开的应用程序。如果需要测试小程序，则将TODO后的代码取消注释。
-**installApk(String apkPath); **   
-以本地apk文件的路径为参数，在对象设备中进行安装
-**listApps(); **    
-显示对象设备中已经安装的应用程序，有多种选择
-**uninstallApp(String appPackage); **  
-以应用程序的包名为参数，卸载设备中已经安装的应用程序
-startActivity(String appPackage, String appActivity);    
-以应用程序的包名和Activity名为参数（必需），启动对应的应用程序，可以在初始化AppiumDriver后打开新程序而不必再次初始化
-**clearContacts(); **     
-清空设备的通讯录联系人，重置通讯录程序。本质是利用abd命令对通讯录程序进行重置，将adb命令提取后可以转换为通过应用程序包名重置应用程序的操作。
-**addContact(String name, String number); **   
-以欲添加联系人的姓名和电话号码为参数，向设备通讯录内添加指定的联系人
-**addContactsFromFileString filePath(); **    
-以本地txt文件的路径为参数，批量导入联系人，其中txt内按照“姓名+换行符+电话号码”的格式，每一行一个联系人
-**deleteOneContact(String name); **   
-以欲删除的联系人的姓名为参数，删除指定的联系人（如果有多个相同姓名的联系人？）
-**Temp(); **    
-临时方法，半自动化添加钉钉内组织架构的联系人，在添加完一页的联系人后需手动调整位置
+> **方法详细**：   
+**Int getWidth();**
+返回设备的宽度     
+**Int getHeight(); **
+返回设备的高度    
+**startProxy(int port); **
+添加代理    
+**stopProxy(); **
+清空代理    
+**initAppiumDriver(); **
+初始化AppiumDriver，在其中注释B处更改初始化时需要打开的应用程序。如果需要测试小程序，则将TODO后的代码取消注释。    
+**installApk(String apkPath); **
+以本地apk文件的路径为参数，在对象设备中进行安装     
+**listApps(); **
+显示对象设备中已经安装的应用程序，有多种选择      
+**uninstallApp(String appPackage); **
+以应用程序的包名为参数，卸载设备中已经安装的应用程序     
+startActivity(String appPackage, String appActivity);
+以应用程序的包名和Activity名为参数（必需），启动对应的应用程序，可以在初始化AppiumDriver后打开新程序而不必再次初始化     
+**clearContacts(); **
+清空设备的通讯录联系人，重置通讯录程序。本质是利用abd命令对通讯录程序进行重置，将adb命令提取后可以转换为通过应用程序包名重置应用程序的操作。     
+**addContact(String name, String number); **
+以欲添加联系人的姓名和电话号码为参数，向设备通讯录内添加指定的联系人     
+**addContactsFromFileString filePath(); **
+以本地txt文件的路径为参数，批量导入联系人，其中txt内按照“姓名+换行符+电话号码”的格式，每一行一个联系人    
+**deleteOneContact(String name); **
+以欲删除的联系人的姓名为参数，删除指定的联系人（如果有多个相同姓名的联系人？）     
+**Temp(); **
+临时方法，半自动化添加钉钉内组织架构的联系人，在添加完一页的联系人后需手动调整位置    
 
 
 ## AndroidDevice类
