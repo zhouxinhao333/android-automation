@@ -56,7 +56,7 @@ startActivity(String appPackage, String appActivity);
 临时方法，半自动化添加钉钉内组织架构的联系人，在添加完一页的联系人后需手动调整位置    
 
 
-## AndroidDevice类
+## WechatSimulator类
 > **功能描述**：
 1、初始化AppiumDriver
 2、从主页面进入到本微信的朋友圈
